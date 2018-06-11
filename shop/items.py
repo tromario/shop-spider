@@ -9,5 +9,7 @@ import scrapy
 
 
 class ShopItem(scrapy.Item):
+    page = scrapy.Field()
+    url = scrapy.Field()
     name = scrapy.Field()
     price = scrapy.Field()
