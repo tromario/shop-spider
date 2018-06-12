@@ -69,7 +69,8 @@ ROBOTSTXT_OBEY = True
 #}
 
 ITEM_PIPELINES = {
-    'shop.pipelines.ShopPipeline': 300
+    'shop.pipelines.MongoPipeline': 300,
+    'shop.pipelines.ESPipeline': 300
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -92,3 +93,10 @@ ITEM_PIPELINES = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+ELASTIC_SEARCH = {
+    'host': 'localhost',
+    'port': 9200,
+    'index': 'products',
+    'doc_type': 'data'
+}
