@@ -97,6 +97,6 @@ ITEM_PIPELINES = {
 ELASTIC_SEARCH = {
     'host': 'localhost',
     'port': 9200,
-    'index': 'products',
-    'doc_type': 'data'
+    'index': 'shop',
+    'doc_type': 'products'
 }

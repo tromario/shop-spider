@@ -41,6 +41,37 @@ class ESPipeline(object):
         self.es_index = es_settings['index']
         self.es_doc_type = es_settings['doc_type']
 
+        self.settings = {
+            "settings": {
+                "analysis": {
+                    "filter": {
+                        # "russian_stop": {
+                        #     "type":       "stop",
+                        #     "stopwords":  "_russian_"
+                        # },
+                        # "russian_stemmer": {
+                        #     "type":       "stemmer",
+                        #     "language":   "russian"
+                        # },
+                    },
+                    "analyzer": {
+                        "default": {
+                            "tokenizer": 'standard',
+                            "filter": ['lowercase']
+                        }
+                    }
+                }
+            },
+            "mappings": {
+                "products": {
+                    "properties": {
+                        "name": { "type": "string" },
+                        "price": { "type": "double" }
+                    }
+                }
+            }
+        }
+
     @classmethod
     def from_crawler(cls, crawler):
         return cls(
@@ -51,6 +82,7 @@ class ESPipeline(object):
         self.es = Elasticsearch([{'host': self.es_host, 'port': self.es_port}])
         if self.es.indices.exists(index = self.es_index):
             self.es.indices.delete(index = self.es_index)
+        self.es.indices.create(index=self.es_index, ignore=400, body=self.settings)
 
     def process_item(self, item, spider):
         self.es.index(index = self.es_index, doc_type = self.es_doc_type, body = dict(item))
