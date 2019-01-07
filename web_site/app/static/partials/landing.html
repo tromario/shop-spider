@@ -1,0 +1,34 @@
+<div class="row form-actions">
+	<form class="form-inline" name="crawlerForm" ng-submit="crawlerFormSubmit()">
+		<div class="form-group">
+			<input type="search" class="form-control" required="required" ng-model="query" placeholder="Наименование товара" autocomplete="on" />
+		</div>
+		<button type="submit" class="btn btn-primary" ng-disabled="crawlerForm.$error.required || submitting">Поиск</button>
+	</form>
+</div>
+
+<div class="row" ng-show="minimumProduct">
+	Товар с минимальной стоимостью: <a href="{{minimumProduct.url}}">{{minimumProduct.url}}</a> - {{minimumProduct.price}} р.
+</div>
+
+<div class="row table-row" ng-repeat="resource in data">
+	<table class="table table-hover">
+		<caption>Магазин: {{resource._id}}</caption>
+		<thead>
+			<tr>
+				<th scope="col">Название</th>
+				<th scope="col">Ссылка</th>
+				<th scope="col">Стоимость, р.</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="product in resource.products">
+				<td>{{product.name}}</td>
+				<td>
+					<a target="_blank" href="{{product.url}}">{{product.url}}</a>
+				</td>
+				<td>{{product.price}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

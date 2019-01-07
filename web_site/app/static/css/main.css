@@ -1,0 +1,21 @@
+body {
+	padding-top: 50px;
+}
+
+.page {
+	padding-top: 20px;
+	/*padding-bottom: 40px;*/
+}
+
+.row {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+caption {
+	text-align: center;
+}
+
+.form-actions {
+	margin-bottom: 20px;
+}
