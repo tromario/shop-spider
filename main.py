@@ -9,6 +9,7 @@ from scrapy.crawler import CrawlerProcess
 from shop.spiders.markethot_spider import MarkethotSpider
 from shop.spiders.megadrop24_spider import Megadrop24Spider
 from shop.spiders.yandex_spider import YandexSpider
+from web_site.manage import runserver
 
 
 class CrawlRunner:
@@ -36,3 +37,6 @@ class CrawlRunner:
 
             if result is not None:
                 raise result
+
+if __name__ == '__main__':
+    runserver()
