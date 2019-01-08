@@ -1,0 +1,23 @@
+{
+  "name": "shop-spider",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "author": "TRomario",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "1.7.5",
+    "angular-resource": "1.7.5",
+    "angular-route": "1.7.5",
+    "angular-ui-bootstrap": "^2.5.6",
+    "bluebird": "^3.5.3",
+    "bootstrap": "3.3.1",
+    "jquery": "1.11.1",
+    "ramda": "^0.26.1",
+    "requirejs": "^2.3.6"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-concat": "^2.6.1"
+  }
+}

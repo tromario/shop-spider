@@ -3,10 +3,12 @@
 function IndexController($scope, Crawler, webService) {
 	$scope.data = [];
 	$scope.submitting = false;
+	$scope.showResult = false;
 
 	$scope.crawlerFormSubmit = function() {
 		$scope.data = [];
 		$scope.minimumProduct = undefined;
+		$scope.showResult = false;
 		$scope.submitting = true;
 
 		webService.get('/crawler/', { query: $scope.query }).then(function(response) {
@@ -24,9 +26,11 @@ function IndexController($scope, Crawler, webService) {
 
 			$scope.minimumProduct = min.item;
 			$scope.submitting = false;
+			$scope.showResult = true;
 		}, function() {
 			console.log('bad');
 			$scope.submitting = false;
+			$scope.showResult = true;
 		});
 	};
 }
