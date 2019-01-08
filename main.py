@@ -8,6 +8,7 @@ from scrapy.crawler import CrawlerProcess
 
 from shop.spiders.markethot_spider import MarkethotSpider
 from shop.spiders.megadrop24_spider import Megadrop24Spider
+from shop.spiders.yandex_spider import YandexSpider
 
 
 class CrawlRunner:

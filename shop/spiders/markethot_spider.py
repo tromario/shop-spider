@@ -34,7 +34,7 @@ class MarkethotSpider(scrapy.Spider):
             yield response.follow(url, callback=self.parse)
 
     def parse(self, response):
-        for product in response.xpath('//*[@class="product-item\n                                                                                                        "]'):
+        for product in response.xpath('//*[contains(@class, "product-item")]'):
             item = ShopItem()
             item['resource'] = self.name
             item['history'] = self.history
