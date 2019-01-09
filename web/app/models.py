@@ -1,4 +1,4 @@
-from web_site.app.database import db
+from web.app.database import db
 
 
 class History(db.Document):

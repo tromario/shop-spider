@@ -3,7 +3,7 @@ import datetime
 from flask import Blueprint, make_response, jsonify, request, abort
 from flask import render_template
 
-from web_site.app.models import History, Product
+from web.app.models import History, Product
 from main import CrawlRunner
 
 module = Blueprint('', __name__, url_prefix='/')
@@ -11,7 +11,7 @@ module = Blueprint('', __name__, url_prefix='/')
 
 @module.route('/', methods=['GET'])
 def index(**kwargs):
-    return make_response(open('app/templates/index.html').read())
+    return render_template('index.html')
 
 
 @module.route('/crawler', methods=['GET'])

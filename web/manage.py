@@ -1,5 +1,5 @@
 import os
-from web_site.app import create_app
+from web.app import create_app
 
 
 def runserver():
